@@ -26,9 +26,9 @@ Este projeto foi construído utilizando as mais recentes tecnologias para desenv
 ## 📸 Telas
 
 <p align="center">
-  <img src=".github/screenshots/login.png" width="260" />
-  <img src=".github/screenshots/home.png" width="260" />
-  <img src=".github/screenshots/details.png" width="260" />
+  <img src="/finish-them/.github/screenshots/app1.jpg" width="260" />
+  <img src="/finish-them/.github/screenshots/app2.jpg" width="260" />
+  <img src="/finish-them/.github/screenshots/app3.jpg" width="260" />
 </p>
 
 ---

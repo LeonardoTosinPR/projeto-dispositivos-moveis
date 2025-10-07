@@ -16,11 +16,10 @@ Este projeto foi construído utilizando as mais recentes tecnologias para desenv
 
 ## ✨ Features
 
-- **✓ Autenticação de Usuário:** Sistema simples de Login e Registro.
 - **✓ Listagem Dupla:** Exibição separada para Filmes e Jogos na tela inicial, em listas horizontais.
 - **✓ Tela de Detalhes:** Visualização completa de informações como gênero, duração/plataforma, descrição e nota.
 - **✓ Navegação Intuitiva:** Fluxo de navegação claro entre as telas de autenticação, home e detalhes.
-- **✓ Funcionalidade de Logout:** Opção para sair da conta com segurança a partir do menu `ActionSheet`.
+- **✓ Formulario de criação(simulado):** Formulario para adição de conteudo finalizado na lista com verificação de dados.
 
 ---
 
@@ -42,7 +41,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 - **Expo**
 - **TypeScript**
 - **Expo Router** (para navegação)
-- **React Context API** (para gerenciamento de estado de autenticação)
 
 ---
 

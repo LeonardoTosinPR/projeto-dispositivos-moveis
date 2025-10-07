@@ -1,3 +1,4 @@
+import DetailMetadata from "@/src/components/DetailMetadata"; // Importe o novo componente
 import { Colors } from "@/src/constants/Colors";
 import { MOCK_DATA } from "@/src/data/database";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -46,21 +47,9 @@ export default function DetailScreen() {
           </View>
           <Text style={styles.description}>{item.description}</Text>
 
-          {item.type === "movie" && (
-            <View style={styles.metaContainer}>
-              <Text style={styles.metaText}>Duração: {item.duration}</Text>
-              <Text style={styles.metaText}>Estúdio: {item.studio}</Text>
-            </View>
-          )}
-
-          {item.type === "game" && (
-            <View style={styles.metaContainer}>
-              <Text style={styles.metaText}>Plataforma: {item.platform}</Text>
-              <Text style={styles.metaText}>Status: {item.status}</Text>
-            </View>
-          )}
-
           {}
+          <DetailMetadata item={item} />
+
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => router.back()}
@@ -100,15 +89,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.text,
     lineHeight: 24,
-    marginBottom: 20,
   },
-  metaContainer: {
-    marginTop: 10,
-    borderTopColor: Colors.inputBackground,
-    borderTopWidth: 1,
-    paddingTop: 10,
-  },
-  metaText: { color: Colors.textSecondary, fontSize: 14, marginBottom: 5 },
   backButton: {
     backgroundColor: Colors.primary,
     padding: 15,

@@ -1,25 +1,35 @@
 import { Colors } from "@/src/constants/Colors";
-import { useAuth } from "@/src/context/AuthContext";
 import { useActionSheet } from "@expo/react-native-action-sheet";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
 import { Pressable } from "react-native";
 
-function LogoutButton() {
+function OptionsButton() {
   const { showActionSheetWithOptions } = useActionSheet();
-  const { logout } = useAuth();
 
   const onPress = () => {
-    const options = ["Sair", "Cancelar"];
-    const destructiveButtonIndex = 0;
-    const cancelButtonIndex = 1;
+    const options = ["Configurações", "Sobre o App", "Cancelar"];
+    const cancelButtonIndex = 2;
 
     showActionSheetWithOptions(
-      { options, cancelButtonIndex, destructiveButtonIndex },
+      {
+        options,
+        cancelButtonIndex,
+        title: "Opções do App",
+        message: "O que você gostaria de fazer?",
+      },
       (selectedIndex?: number) => {
-        if (selectedIndex === destructiveButtonIndex) {
-          logout();
+        switch (selectedIndex) {
+          case 0:
+            console.log("Usuário selecionou Configurações");
+            break;
+
+          case 1:
+            console.log("Usuário selecionou Sobre o App");
+            break;
+
+          case cancelButtonIndex:
         }
       }
     );
@@ -27,11 +37,10 @@ function LogoutButton() {
 
   return (
     <Pressable onPress={onPress} style={{ marginRight: 16 }}>
-      <Ionicons name="exit-outline" size={24} color={Colors.primary} />
+      <Ionicons name="ellipsis-vertical" size={24} color={Colors.primary} />
     </Pressable>
   );
 }
-
 export default function TabsLayout() {
   return (
     <Tabs
@@ -55,7 +64,17 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={24} color={color} />
           ),
-          headerRight: () => <LogoutButton />,
+          headerRight: () => <OptionsButton />,
+        }}
+      />
+      <Tabs.Screen
+        name="add"
+        options={{
+          title: "Adicionar Item",
+          tabBarLabel: "Adicionar",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="add-circle" size={24} color={color} />
+          ),
         }}
       />
     </Tabs>

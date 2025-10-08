@@ -1,12 +1,14 @@
 import { Colors } from "@/src/constants/Colors";
 import { useActionSheet } from "@expo/react-native-action-sheet";
 import { Ionicons } from "@expo/vector-icons";
+import * as Linking from "expo-linking";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Pressable } from "react-native";
+import { Alert, Pressable } from "react-native";
 
 function OptionsButton() {
   const { showActionSheetWithOptions } = useActionSheet();
+  const url = "https://github.com/LeonardoTosinPR/projeto-dispositivos-moveis";
 
   const onPress = () => {
     const options = ["Configurações", "Sobre o App", "Cancelar"];
@@ -27,6 +29,10 @@ function OptionsButton() {
 
           case 1:
             console.log("Usuário selecionou Sobre o App");
+            Linking.openURL(url).catch((err) => {
+              console.error("Erro ao tentar abrir a URL:", err);
+              Alert.alert("Erro", "Não foi possível abrir o link do GitHub.");
+            });
             break;
 
           case cancelButtonIndex:
